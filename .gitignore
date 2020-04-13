@@ -6,3 +6,5 @@ node_modules
 # Ignoring Package-lock.json
 package-lock.json
 
+# Ignoring Logs 
+logs

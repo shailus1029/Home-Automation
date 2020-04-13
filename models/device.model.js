@@ -5,16 +5,19 @@ const deviceSchema = new schema(
 	{
 		deviceId: {
 			type: String,
+			unique: true,
+			required: true,
 		},
 		name: {
 			type: String,
+			required: true,
 		},
 		active: {
 			type: Boolean,
 			default: true,
 		},
 		description: {
-			String,
+			type: String,
 		},
 		deviceType: {
 			type: String,
