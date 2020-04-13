@@ -11,6 +11,9 @@ db();
 const app = express();
 app.use(express.json());
 
+//adding routes to application
+require("./routes")(app);
+
 //adding body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
