@@ -5,7 +5,7 @@ const deviceController = require("../controllers/device.controller");
 
 router.post("/", deviceController.addDevice);
 router.get("/deviceList", deviceController.getDevicesList);
-router.patch("/", deviceController.updateDevice);
-router.delete("/", deviceController.removeDevice);
+router.patch("/:id", deviceController.updateDevice);
+router.delete("/:id", deviceController.removeDevice);
 
 module.exports = router;
