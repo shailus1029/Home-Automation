@@ -1,0 +1,8 @@
+## Adding files which has to be ignored
+
+# Ignoring node_modules
+node_modules
+
+# Ignoring Package-lock.json
+package-lock.json
+
