@@ -1,6 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
+// Importing DB configuration
+const db = require("./config/db");
+
+//call the database connectivity function
+db();
+
 // intilization our express app;
 const app = express();
 app.use(express.json());
