@@ -40,7 +40,7 @@ exports.addDevice = function (req, res) {
 			if (res) {
 				res.status(200).json({ data: data });
 			} else {
-				console.info("Device Added Successfully");
+				console.info("Active Device Added Successfully");
 				mongoose.connection.close();
 			}
 		})
@@ -65,7 +65,7 @@ exports.getDevicesList = function (req, res) {
 		}
 	})
 		.then((resolved) => {
-			return service.getDevicesList();
+			return service.getDevicesList({ active: true });
 		})
 		.then((data) => {
 			const devicesList = data.map((device) => {
@@ -81,9 +81,9 @@ exports.getDevicesList = function (req, res) {
 			if (res) {
 				res.status(200).json({ devicesList });
 			} else {
-				console.info("----------- Devices List --------------");
+				console.info("----------- Active Devices List --------------");
 				console.info(devicesList);
-				console.info(`${devicesList.length} Devices Found`);
+				console.info(`${devicesList.length} Active Devices Found`);
 				mongoose.connection.close();
 			}
 		})
@@ -159,6 +159,93 @@ exports.updateDevice = function (req, res) {
 				res.status(200).json({ data: data });
 			} else {
 				console.info("Device updated successfully");
+				mongoose.connection.close();
+			}
+		})
+		.catch((err) => {
+			logger.error(err);
+			if (res) {
+				res.status(500).json({ errors: err });
+			} else {
+				console.error(err);
+				mongoose.connection.close();
+			}
+		});
+};
+
+exports.changeDeviceStatus = function (req, res) {
+	let errors = [];
+	let isError = false;
+	return new Promise((resolve, reject) => {
+		if (Object.keys(req.body).length === 0) {
+			isError = true;
+			handleError("noPayload", errors);
+			logger.error(errors);
+			if (res) {
+				return res.status(400).json({ errors: errors });
+			} else {
+				console.error(errors);
+				mongoose.connection.close();
+			}
+		}
+		if (isError) {
+			reject(errors);
+		} else {
+			resolve(true);
+		}
+	})
+		.then((resolved) => {
+			return service.updateDevice(req.params.id, req.body);
+		})
+		.then((data) => {
+			if (res) {
+				res.status(200).json({ data: data });
+			} else {
+				console.info("Device status Changed successfully");
+				mongoose.connection.close();
+			}
+		})
+		.catch((err) => {
+			logger.error(err);
+			if (res) {
+				res.status(500).json({ errors: err });
+			} else {
+				console.error(err);
+				mongoose.connection.close();
+			}
+		});
+};
+
+exports.getInactiveDevicesList = function (req, res) {
+	let errors = [];
+	let isError = false;
+	return new Promise((resolve, reject) => {
+		if (isError) {
+			return reject(errors);
+		} else {
+			return resolve(true);
+		}
+	})
+		.then((resolved) => {
+			return service.getDevicesList({ active: false });
+		})
+		.then((data) => {
+			const inactiveDevicesList = data.map((device) => {
+				let temp = {};
+				temp.id = device._id;
+				temp.deviceId = device.deviceId;
+				temp.name = device.name;
+				temp.description = device.description;
+				temp.deviceType = device.deviceType;
+				temp.active = device.active;
+				return temp;
+			});
+			if (res) {
+				res.status(200).json({ inactiveDevicesList });
+			} else {
+				console.info("----------- Inactive Devices List --------------");
+				console.info(inactiveDevicesList);
+				console.info(`${inactiveDevicesList.length} Inactive Devices Found`);
 				mongoose.connection.close();
 			}
 		})

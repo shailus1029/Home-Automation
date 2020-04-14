@@ -6,8 +6,8 @@ exports.addDevice = async function (body) {
 	});
 };
 
-exports.getDevicesList = async function () {
-	return deviceModel.getDevicesList().then((devicesList) => {
+exports.getDevicesList = async function (filter) {
+	return deviceModel.getDevicesList(filter).then((devicesList) => {
 		return devicesList;
 	});
 };

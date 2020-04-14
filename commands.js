@@ -7,6 +7,8 @@ const {
 	removeDevice,
 	updateDevice,
 	getDevicesList,
+	changeDeviceStatus,
+	getInactiveDevicesList,
 } = require("./controllers/device.controller");
 
 // Database URL
@@ -48,6 +50,24 @@ const deviceQuestion = [
 	},
 ];
 
+const inActiveStatusQuestion = [
+	{
+		type: "confirm",
+		name: "active",
+		message: "Do you want to inactive the device ?",
+		default: false,
+	},
+];
+
+const activeStatusQuestion = [
+	{
+		type: "confirm",
+		name: "active",
+		message: "Do you want to active the device ?",
+		default: false,
+	},
+];
+
 // Add device command
 program
 	.command("add")
@@ -62,11 +82,11 @@ program
 		});
 	});
 
-// List all devices command
+// List all active devices command
 program
 	.command("list")
 	.alias("l")
-	.description("Listing all smart devices")
+	.description("Listing all active smart devices")
 	.action(() => {
 		getDevicesList();
 	});
@@ -95,6 +115,57 @@ program
 				body: answers,
 			};
 			updateDevice(reqObject);
+		});
+	});
+
+// List all Inactive command
+program
+	.command("inactive-list")
+	.alias("i-l")
+	.description("Listing all inactive smart devices")
+	.action(() => {
+		getInactiveDevicesList();
+	});
+
+// Change device status to inactive status
+program
+	.command("inactive <id>")
+	.alias("ch")
+	.description("Put a device in  inactive status")
+	.action((id) => {
+		prompt(inActiveStatusQuestion).then((answer) => {
+			const reqObject = {
+				params: { id },
+				body: {
+					active: !answer.active,
+				},
+			};
+			if (answer.active) {
+				changeDeviceStatus(reqObject);
+			} else {
+				mongoose.connection.close();
+			}
+		});
+	});
+
+// Change device status to active status
+program
+	.command("active <id>")
+	.alias("ac")
+	.description("Put a device in active status")
+	.action((id) => {
+		prompt(activeStatusQuestion).then((answer) => {
+			const reqObject = {
+				params: { id },
+				body: {
+					active: answer.active,
+				},
+			};
+			if (answer.active) {
+				changeDeviceStatus(reqObject);
+			} else {
+				mongoose.connection.close();
+			}
 		});
 	});
 

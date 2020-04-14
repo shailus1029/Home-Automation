@@ -5,7 +5,6 @@ const deviceSchema = new schema(
 	{
 		deviceId: {
 			type: String,
-			unique: true,
 			required: true,
 		},
 		name: {
@@ -42,10 +41,10 @@ const addDevice = (body) => {
 	});
 };
 
-const getDevicesList = () => {
+const getDevicesList = (filter) => {
 	const Device = mongoose.model("Device", deviceSchema);
 	return new Promise((resolve, reject) => {
-		Device.find({}, (err, data) => {
+		Device.find(filter, (err, data) => {
 			if (err) {
 				reject(err);
 			} else {
