@@ -51,24 +51,24 @@ Below are the following scenarios I have implemented. You can test them from a p
 
 ##### 1. List all active smart devices
 
-![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/API-1.png?raw=true)
+![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-1.png?raw=true)
 
 ##### 2. List all inactive smart devices
 
-![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/API-2.png?raw=true)
+![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-2.png?raw=true)
 
 ##### 3. Add a smart device.
 
-![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/API-3.png?raw=true)
+![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-3.png?raw=true)
 
 ##### 4. Update a smart device details.
 
-![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/API-4.png?raw=true)
+![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-4.png?raw=true)
 
 ##### 5. Remove a smart device.
 
-![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/API-5.png?raw=true)
+![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-5.png?raw=true)
 
 ##### 6. Change status of a device from active to inactive and vice versa.
 
-![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/API-6.png?raw=true)
+![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-6.png?raw=true)
