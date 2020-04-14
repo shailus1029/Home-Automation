@@ -51,50 +51,50 @@ Below are the following scenarios I have implemented. You can test them from a p
 
 ##### 1. List all active smart devices
 
-**method** - `GET`,
-**url** - `localhost:8000/api/device/list`
-**output** - it will give list of all active devices
+- **method** - `GET`,
+- **url** - `localhost:8000/api/device/list`
+- **output** - it will give list of all active devices
 
 ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-1.png?raw=true)
 
 ##### 2. List all inactive smart devices
 
-**method** - `GET`,
-**url** - `localhost:8000/api/device/inactiveDevicesList`
-**output** - it will give list of all inactive devices
+- **method** - `GET`,
+- **url** - `localhost:8000/api/device/inactiveDevicesList`
+- **output** - it will give list of all inactive devices
 
 ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-2.png?raw=true)
 
 ##### 3. Add a smart device.
 
-**method** - `POST`,
-**url** - `localhost:8000/api/device`
-**body** - `{ "deviceId": "testing", "name": "testing device", "description": "testing device", "deviceType": "home", "active": "true" }`,
-**output** - it will add new device to database
+- **method** - `POST`,
+- **url** - `localhost:8000/api/device`
+- **body** - `{ "deviceId": "testing", "name": "testing device", "description": "testing device", "deviceType": "home", "active": "true" }`,
+- **output** - it will add new device to database
 
 ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-3.png?raw=true)
 
 ##### 4. Update a smart device details.
 
-**method** - `PATCH`,
-**url** - `localhost:8000/api/device/:id` (where `id` is the `id` property of the device object),
-**body** - `{ "deviceId": "device11", "name": "device11", "description": "device11", "deviceType": "device11", "active": true }`
-**output** - it will update the device details in database
+- **method** - `PATCH`,
+- **url** - `localhost:8000/api/device/:id` (where `id` is the `id` property of the device object),
+- **body** - `{ "deviceId": "device11", "name": "device11", "description": "device11", "deviceType": "device11", "active": true }`
+- **output** - it will update the device details in database
 
 ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-4.png?raw=true)
 
 ##### 5. Remove a smart device.
 
-**method** - `DELETE`,
-**url** - `localhost:8000/api/device/:id` (where `id` is the `id` property of the device object),
-**output** - it will remove the device from database
+- **method** - `DELETE`,
+- **url** - `localhost:8000/api/device/:id` (where `id` is the `id` property of the device object),
+- **output** - it will remove the device from database
 
 ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-5.png?raw=true)
 
 ##### 6. Change status of a device from active to inactive and vice versa.
 
-**method** - `PUT`,
-**url** - `localhost:8000/api/device/changeStatus/:id` (where `id` is the `id` property of the device object),
-**body** - `{ "active": false }`
-**output** - it will change the active status in database
-![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-6.png?raw=true)
+- **method** - `PUT`,
+- **url** - `localhost:8000/api/device/changeStatus/:id` (where `id` is the `id` property of the device object),
+- **body** - `{ "active": false }`
+- **output** - it will change the active status in database
+  ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-6.png?raw=true)
