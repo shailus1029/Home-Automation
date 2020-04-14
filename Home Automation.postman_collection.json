@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "126d5d07-fde3-45e3-bf01-d1084e541c2b",
+		"name": "Home Automation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listing All Device API ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/api/device/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"device",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a new device API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"deviceId\": \"testing\",\n\t\"name\": \"testing device\",\n\t\"description\": \"testing device\",\n\t\"deviceType\": \"home\",\n\t\"active\": \"true\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/device/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"device",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Device API",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"deviceId\": \"device11\",\n    \"name\": \"device11\",\n    \"description\": \"device11\",\n    \"deviceType\": \"device11\",\n    \"active\": true\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/device/5e956c83ef06f65cdf1156e7",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"device",
+						"5e956c83ef06f65cdf1156e7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Device API",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/api/device/5e956a51804cba5c5d4c2af6",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"device",
+						"5e956a51804cba5c5d4c2af6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change status of Device",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"active\": false\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/device/changeStatus/5e956c83ef06f65cdf1156e7",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"device",
+						"changeStatus",
+						"5e956c83ef06f65cdf1156e7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List of All Inactive Device list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/api/device/inactiveDevicesList",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"device",
+						"inactiveDevicesList"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
