@@ -104,16 +104,16 @@ Below are the following scenarios I have implemented. You can test them from a p
 
 1. Run command `device-system --help` - it will list out all the commands available in the system. Below is the screenshot of the output in web console.
 
-   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/command-1.png?raw=true)
+   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/cmd-1.png?raw=true)
 
 2. `device-system list` - it will list out all active devices in the system
 
-   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/command-3.png?raw=true)
+   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/cmd-3.png?raw=true)
 
 3. `device-system inactive-list` - it will list out all inactive devices in the system.
 
-   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/command-4.png?raw=true)
+   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/cmd-4.png?raw=true)
 
 4. `device-system add` - this will ask certaind questions to the user and once they repsonse all questions, the response will look like below.
 
-   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/command-2.png?raw=true)
+   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/cmd-2.png?raw=true)
