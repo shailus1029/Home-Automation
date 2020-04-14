@@ -1,11 +1,15 @@
 {
 	"name": "home-automation",
 	"version": "1.0.0",
+	"preferGlobal": true,
 	"description": "Home Automation system to remotely control devices at home",
 	"main": "index.js",
 	"scripts": {
 		"start": "nodemon app.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"bin": {
+		"device-system": "./commands.js"
 	},
 	"repository": {
 		"type": "git",
@@ -27,8 +31,11 @@
 	"homepage": "https://github.com/shailus1029/Home-Automation#readme",
 	"dependencies": {
 		"body-parser": "^1.19.0",
+		"colors": "^1.4.0",
+		"commander": "^5.0.0",
 		"express": "^4.17.1",
 		"fs-extra": "^9.0.0",
+		"inquirer": "^7.1.0",
 		"mongoose": "^5.9.9",
 		"winston": "^3.2.1",
 		"winston-daily-rotate-file": "^4.4.2"

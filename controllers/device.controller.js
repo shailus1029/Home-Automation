@@ -1,6 +1,7 @@
 const service = require("../services/device.service");
 const { handleError } = require("../utils/error.handler");
 const logger = require("../utils/logger");
+const mongoose = require("mongoose");
 
 exports.addDevice = function (req, res) {
 	let errors = [];
@@ -11,7 +12,12 @@ exports.addDevice = function (req, res) {
 			isError = true;
 			handleError("noPayload", errors);
 			logger.error(errors);
-			return res.status(400).json({ errors: errors });
+			if (res) {
+				return res.status(400).json({ errors: errors });
+			} else {
+				console.error(errors);
+				mongoose.connection.close();
+			}
 		}
 		if (!body.deviceId) {
 			isError = true;
@@ -31,12 +37,20 @@ exports.addDevice = function (req, res) {
 			return service.addDevice(body);
 		})
 		.then((data) => {
-			res.status(200).json({
-				data: data,
-			});
+			if (res) {
+				res.status(200).json({ data: data });
+			} else {
+				console.info("Device Added Successfully");
+				mongoose.connection.close();
+			}
 		})
 		.catch((err) => {
-			res.status(500).json({ errors: err });
+			if (res) {
+				res.status(500).json({ errors: err });
+			} else {
+				console.info(err);
+				mongoose.connection.close();
+			}
 		});
 };
 
@@ -53,12 +67,34 @@ exports.getDevicesList = function (req, res) {
 		.then((resolved) => {
 			return service.getDevicesList();
 		})
-		.then((devicesList) => {
-			res.status(200).json({ devicesList });
+		.then((data) => {
+			const devicesList = data.map((device) => {
+				let temp = {};
+				temp.id = device._id;
+				temp.deviceId = device.deviceId;
+				temp.name = device.name;
+				temp.description = device.description;
+				temp.deviceType = device.deviceType;
+				temp.active = device.active;
+				return temp;
+			});
+			if (res) {
+				res.status(200).json({ devicesList });
+			} else {
+				console.info("----------- Devices List --------------");
+				console.info(devicesList);
+				console.info(`${devicesList.length} Devices Found`);
+				mongoose.connection.close();
+			}
 		})
 		.catch((err) => {
 			logger.error(err);
-			res.status(500).json({ errors: err });
+			if (res) {
+				res.status(500).json({ errors: err });
+			} else {
+				console.error(err);
+				mongoose.connection.close();
+			}
 		});
 };
 
@@ -76,11 +112,21 @@ exports.removeDevice = function (req, res) {
 			return service.removeDevice(req.params.id);
 		})
 		.then((data) => {
-			res.status(200).json({ data: "Device is deleted successfullty" });
+			if (res) {
+				res.status(200).json({ data: "Device is deleted successfullty" });
+			} else {
+				console.info("Device removed successfully");
+				mongoose.connection.close();
+			}
 		})
 		.catch((err) => {
 			logger.error(err);
-			res.status(500).json({ errors: err });
+			if (res) {
+				res.status(500).json({ errors: err });
+			} else {
+				console.error(err);
+				mongoose.connection.close();
+			}
 		});
 };
 
@@ -92,7 +138,12 @@ exports.updateDevice = function (req, res) {
 			isError = true;
 			handleError("noPayload", errors);
 			logger.error(errors);
-			return res.status(400).json({ errors: errors });
+			if (res) {
+				return res.status(400).json({ errors: errors });
+			} else {
+				console.error(errors);
+				mongoose.connection.close();
+			}
 		}
 		if (isError) {
 			reject(errors);
@@ -104,10 +155,20 @@ exports.updateDevice = function (req, res) {
 			return service.updateDevice(req.params.id, req.body);
 		})
 		.then((data) => {
-			res.status(200).json({ data: data });
+			if (res) {
+				res.status(200).json({ data: data });
+			} else {
+				console.info("Device updated successfully");
+				mongoose.connection.close();
+			}
 		})
 		.catch((err) => {
 			logger.error(err);
-			res.status(500).json({ errors: err });
+			if (res) {
+				res.status(500).json({ errors: err });
+			} else {
+				console.error(err);
+				mongoose.connection.close();
+			}
 		});
 };

@@ -58,7 +58,7 @@ const getDevicesList = () => {
 const removeDevice = (id) => {
 	const Device = mongoose.model("Device", deviceSchema);
 	return new Promise((resolve, reject) => {
-		Device.findByIdAndRemove(id, (err, data) => {
+		Device.findOneAndDelete(id, (err, data) => {
 			if (err) {
 				reject(err);
 			} else {
@@ -68,10 +68,10 @@ const removeDevice = (id) => {
 	});
 };
 
-const updateDevice = () => {
+const updateDevice = (id, body) => {
 	const Device = mongoose.model("Device", deviceSchema);
 	return new Promise((resolve, reject) => {
-		Device.findByIdAndUpdate(id, { $set: body }, { new: true }, (err, data) => {
+		Device.findOneAndUpdate(id, { $set: body }, { new: true }, (err, data) => {
 			if (err) {
 				reject(err);
 			} else {
