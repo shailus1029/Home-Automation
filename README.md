@@ -103,17 +103,23 @@ Below are the following scenarios I have implemented. You can test them from a p
 ### Accessing application using web console.
 
 1. Run command `device-system --help` - it will list out all the commands available in the system. Below is the screenshot of the output in web console.
-
    ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/cmd-1.png?raw=true)
 
 2. `device-system list` - it will list out all active devices in the system
-
    ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/cmd-3.png?raw=true)
 
 3. `device-system inactive-list` - it will list out all inactive devices in the system.
-
    ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/cmd-4.png?raw=true)
 
 4. `device-system add` - this will ask certaind questions to the user and once they repsonse all questions, the response will look like below.
-
    ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/cmd-2.png?raw=true)
+
+5. `device-system remove id` - where id is the id of device object. This will remove the device from the system.  
+   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/cmd-5.png?raw=true)
+
+6. `device-system update id` - where id is the id of device object. This will update the device in the system.this will ask certaind questions to the user and once they repsonse all questions, the response will look like below.  
+   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/cmd-6.png?raw=true)
+
+7. `device-system inactive id` - this will change the status of device from active to inactive in the system.
+8. `device-system active id` - this will change the status of device from inactive to active in the system.
+   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/cmd-7.png?raw=true)
