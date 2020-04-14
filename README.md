@@ -97,4 +97,23 @@ Below are the following scenarios I have implemented. You can test them from a p
 - **url** - `localhost:8000/api/device/changeStatus/:id` (where `id` is the `id` property of the device object),
 - **body** - `{ "active": false }`
 - **output** - it will change the active status in database
-  ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-6.png?raw=true)
+
+![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/api-screens/API-6.png?raw=true)
+
+### Accessing application using web console.
+
+1. Run command `device-system --help` - it will list out all the commands available in the system. Below is the screenshot of the output in web console.
+
+   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/command-1.png?raw=true)
+
+2. `device-system list` - it will list out all active devices in the system
+
+   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/command-3.png?raw=true)
+
+3. `device-system inactive-list` - it will list out all inactive devices in the system.
+
+   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/command-4.png?raw=true)
+
+4. `device-system add` - this will ask certaind questions to the user and once they repsonse all questions, the response will look like below.
+
+   ![alt-text](https://github.com/shailus1029/Home-Automation/blob/master/web-console-screens/command-2.png?raw=true)
